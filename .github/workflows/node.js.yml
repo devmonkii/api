@@ -42,5 +42,5 @@ jobs:
                     git clone git@github.com:devmonkii/api.git
                     touch test.txt
                     echo "Done!" >> test.txt
-                    echo ${{ secrest.SSH_USERNAME }} >> test.txt
+                    echo ${{ secrets.SSH_USERNAME }} >> test.txt
                     
