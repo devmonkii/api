@@ -52,7 +52,7 @@ jobs:
                     echo ${{ secrets.SSH_USERNAME }} >> test.txt
   deploy:
     name: Deploy production
-    needs: build
+    needs: deploy-staging
     environment: 'production'
     runs-on: ubuntu-latest
     steps:
