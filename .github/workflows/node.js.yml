@@ -62,6 +62,7 @@ jobs:
         script: |
                     cd /home/daniel
                     mkdir -p production
+                    cd production
                     git clone git@github.com:devmonkii/api.git
                     touch test.txt
                     echo "Done!" >> test.txt
