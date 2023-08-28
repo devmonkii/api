@@ -40,4 +40,7 @@ jobs:
         script: |
                     cd /home/daniel
                     git clone git@github.com:devmonkii/api.git
-                    echo "Done!"
+                    touch test.txt
+                    echo "Done!" >> test.txt
+                    echo ${{ secrest.SSH_USERNAME }} >> test.txt
+                    
