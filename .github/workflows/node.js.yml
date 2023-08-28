@@ -45,7 +45,7 @@ jobs:
                     cd /home/daniel
                     mkdir -p sandbox
                     cd sandbox
-                    git clone git@github.com:devmonkii/api.git
+                    git pull
                     touch test.txt
                     echo "Done!" >> test.txt
                     echo ${{ secrets.SSH_USERNAME }} >> test.txt
@@ -65,7 +65,7 @@ jobs:
                     cd /home/daniel
                     mkdir -p production
                     cd production
-                    git clone git@github.com:devmonkii/api.git
+                    git pull
                     touch test.txt
                     echo "Done!" >> test.txt
                     echo ${{ secrets.SSH_USERNAME }} >> test.txt
