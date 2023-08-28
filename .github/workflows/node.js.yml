@@ -29,7 +29,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
 
-  deploy:
+  deploy-staging:
     name: Deploy sandbox
     needs: build
     environment: 'sandbox'
@@ -47,4 +47,22 @@ jobs:
                     touch test.txt
                     echo "Done!" >> test.txt
                     echo ${{ secrets.SSH_USERNAME }} >> test.txt
-                    
+  deploy:
+    name: Deploy production
+    needs: build
+    environment: 'production'
+    runs-on: ubuntu-latest
+    steps:
+    - name: ssh to Digital Ocean droplet and clone repo
+      uses: appleboy/ssh-action@v0.1.4
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+                    cd /home/daniel
+                    mkdir -p production
+                    git clone git@github.com:devmonkii/api.git
+                    touch test.txt
+                    echo "Done!" >> test.txt
+                    echo ${{ secrets.SSH_USERNAME }} >> test.txt
