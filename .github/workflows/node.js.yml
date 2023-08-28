@@ -30,14 +30,11 @@ jobs:
     - run: npm ci
 
   deploy:
-    name: Deploy
+    name: Deploy sandbox
     needs: build
+    environment: 'sandbox'
     runs-on: ubuntu-latest
     steps:
-    - name: manual approval
-      uses: trstringer/manual-approval@v1
-      with:
-        approvers: devmonkii
     - name: ssh to Digital Ocean droplet and clone repo
       uses: appleboy/ssh-action@v0.1.4
       with:
