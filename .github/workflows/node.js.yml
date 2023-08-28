@@ -43,6 +43,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
                     cd /home/daniel
+                    mkdir -p sandbox
+                    cd sandbox
                     git clone git@github.com:devmonkii/api.git
                     touch test.txt
                     echo "Done!" >> test.txt
