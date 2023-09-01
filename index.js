@@ -10,9 +10,11 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-// test change 1
-// change 2 is the fix!
-// change 3
-// change 4
-// change 5
+
+
+if(process.env.FEATURE_1) {
+  console.log('FEATURE_1 is active');
+} else {
+  console.log('Do not run code for FEATURE_1');
+}
 
